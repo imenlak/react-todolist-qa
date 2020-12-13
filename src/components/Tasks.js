@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Tasks() {
 
+    /**
+     * List of tasks and states to add a new one.
+     */
     const [tasksList, setTasksList] = useState(null)
-
     const [taskName, setTaskName] = useState('')
     const [taskDescription, setTaskDescription] = useState('')
 
@@ -14,6 +16,9 @@ export default function Tasks() {
         }
     }, [tasksList])
 
+    /**
+     * Add a new task in the tasksList state and save the list into the localStorage.
+     */
     const addTask = () => {
         if (taskName && taskDescription) {
             const list = tasksList;
@@ -21,19 +26,29 @@ export default function Tasks() {
 
             setTasksList(list)
 
+            // Clear fields to add another one.
             setTaskName('')
             setTaskDescription('')
 
+            // Save into the localStorage.
             window.localStorage.setItem('tasks', JSON.stringify(list))
         }
     }
 
+    /**
+     * Delete a task.
+     * @param {String} name Name of the task (to identify it).
+     */
     const deleteTask = (name) => {
         const list = tasksList.filter((task) => task.name !== name)
 
         setTasksList(list)
     }
 
+    /**
+     * Set a task as "completed" or "not completed" (depending of the current status of the task).
+     * @param {String} name Name of the task (to identify it).
+     */
     const setCompleted = (name) => {
         const list = tasksList.map((task) => {
             if (task.name === name) {
@@ -45,6 +60,9 @@ export default function Tasks() {
         setTasksList(list)
     }
 
+    /**
+     * Render
+     */
     return (
         <div>
             <h2>Liste des tâches</h2>

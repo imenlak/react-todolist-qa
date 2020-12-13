@@ -7,7 +7,6 @@ import {
 import { PrivateRoute } from "./auth/authentication";
 import Home from "./components/Home";
 import Tasks from "./components/Tasks";
-import About from "./components/About";
 import Navbar from "./components/Navbar";
 
 
@@ -23,9 +22,6 @@ export default function App() {
             </PrivateRoute>
 
             {/* Public routes */}
-            <Route path="/about">
-              <About />
-            </Route>
             <Route path="/">
               <Home />
             </Route>

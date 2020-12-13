@@ -11,6 +11,9 @@ export default function Home() {
   const auth = providerAuth();
   const history = useHistory();
 
+  /**
+   * Log the user and redirect the page to the route "/tasks".
+   */
   const logIn = () => {
     if (email === 'test@test.com' && password === 'test') {
       auth.signin("Test")
@@ -19,6 +22,7 @@ export default function Home() {
       return;
     }
 
+    // If credentials are invalid, an error is shown.
     setError(true);
   }
 

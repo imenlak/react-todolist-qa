@@ -19,20 +19,14 @@ export default function Navbar() {
           <li className="nav-item">
             <Link className="nav-link" to="/">Home</Link>
           </li>
-          
 
           <li className="nav-item">
             <Link className="nav-link" to="/tasks">Tâches</Link>
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" to="/about">Explication</Link>
-          </li>
-
-          <li className="nav-item">
             <Link className="nav-link" to="/" onClick={() => auth.signout()}>Déconnexion</Link>
           </li>
-
         </ul>
       </div>
     </nav>
